@@ -1,0 +1,238 @@
+﻿<Window x:Class="Wpf_HW_3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf_HW_3"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="800" Width="800"
+        FontSize="10">
+    <Grid>
+        <ScrollViewer
+            CanContentScroll="True"
+            VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                <TextBlock
+                Text="Анкета"
+                HorizontalAlignment="Center"
+                FontSize="20"
+                FontWeight="Bold"
+                Margin="2"/>
+                <TextBlock
+                Text="программиста"
+                HorizontalAlignment="Center"
+                FontWeight="Medium"
+                FontSize="15"
+                Margin="2"/>
+
+                <!--Введите ФИО-->
+                <GroupBox Header="Введите ФИО">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Content="Фамилия"
+                        Margin="2"/>
+                        <TextBox
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Margin="2"
+                        MaxLength="50"/>
+                        <Label
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Content="Имя"
+                        Margin="2"/>
+                        <TextBox
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Margin="2"
+                        MaxLength="50"/>
+                        <Label
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Content="Отчество"
+                        Margin="2"/>
+                        <TextBox
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Margin="2"
+                        MaxLength="50"/>
+                    </Grid>
+                </GroupBox>
+
+                <!--Выбирете языки программирования, которые знаете-->
+                <GroupBox Header="Выбирете языки программирования, которые знаете">
+                    <StackPanel>
+                        <CheckBox
+                        Content="C#"/>
+                        <CheckBox
+                        Content="JavaScript"/>
+                        <CheckBox
+                        Content="Python"/>
+                        <CheckBox
+                        Content="C++"/>
+
+                        <!--Дополнительные-->
+                        <Expander Header="Дополнительные">
+                            <Expander.ToolTip>
+                                <ToolTip>
+                                    <TextBlock Text="Если не нашли свой или знаете больше"/>
+                                </ToolTip>
+                            </Expander.ToolTip>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <ListBox
+                                Grid.RowSpan="2"
+                                Grid.Row="0"
+                                Grid.Column="0">
+                                    <ListBoxItem>
+                                        <TextBlock Text="Ещё много..."/>
+                                    </ListBoxItem>
+                                </ListBox>
+                                <Button
+                                Click="btnPopup_Click"
+                                Grid.Column="1"
+                                Grid.Row="0"
+                                Content="Добавить"
+                                FontWeight="Bold"/>
+                                <Button
+                                Grid.Column="1"
+                                Grid.Row="1"
+                                Content="Удалить выбранное"
+                                FontWeight="Bold"/>
+                                <Popup
+                                x:Name="popUp_add"
+                                Placement="Center"
+                                Width="350"
+                                AllowsTransparency="True"
+                                PopupAnimation="Slide">
+                                    <Border
+                                    BorderBrush="Black"
+                                    BorderThickness="1">
+                                        <StackPanel>
+                                            <Label
+                                            Background="White"
+                                            Content="Введите значение"
+                                            Margin="2"/>
+                                            <TextBox
+                                            Margin="2"
+                                            MaxLength="30"/>
+                                            <Button
+                                            Margin="2"
+                                            Content="OK"/>
+                                        </StackPanel>
+                                    </Border>
+                                </Popup>
+                            </Grid>
+                        </Expander>
+                    </StackPanel>
+                </GroupBox>
+
+                <!--Расскажите о себе-->
+                <GroupBox Header="Расскажите о себе">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBox
+                        Grid.Row="0"
+                        Height="80"
+                        TextWrapping="Wrap"
+                        MaxLength="500"
+                        VerticalScrollBarVisibility="Auto"
+                        AcceptsReturn="True"/>
+                        <Label
+                        Grid.Row="1"
+                        Content="0/500"/>
+                    </Grid>
+                </GroupBox>
+                
+                <!--Выбирите дату рождения-->
+                <GroupBox Header="Выбирите дату рождения">
+                    <DatePicker
+                        SelectedDate="2000-01-01"
+                        SelectedDateFormat="Long"/>
+                </GroupBox>
+                
+                <!--Ваш уровень английского-->
+                <GroupBox Header="Ваш уровень английского">
+                    <StackPanel>
+                        <RadioButton
+                            Content="(A1) - начальный"
+                            GroupName="english_level"/>
+                        <RadioButton
+                            Content="(A2) - ниже среднего"
+                            GroupName="english_level"/>
+                        <RadioButton
+                            Content="(B1) - средний"
+                            GroupName="english_level"/>
+                        <RadioButton
+                            Content="(B2) - выше среднего"
+                            GroupName="english_level"/>
+                        <RadioButton
+                            Content="(C1) - продвинутый"
+                            GroupName="english_level"/>
+                        <RadioButton
+                            Content="(C2) - профессиональный уровень владения"
+                            GroupName="english_level"/>
+                    </StackPanel>
+                </GroupBox>
+                
+                <!--Выбирите ОС, которая вам нравится-->
+                <GroupBox Header="Выбирите ОС, которая вам нравится">
+                    <ComboBox>
+                        <ComboBoxItem Tag="Linux">
+                            <WrapPanel Width="50">
+                                <Image Source="Resources\Image\Linux-icon.png"/>
+                            </WrapPanel>
+                        </ComboBoxItem>
+                        <ComboBoxItem Tag="Android">
+                            <WrapPanel Width="50">
+                                <Image Source="Resources\Image\OS-Android-icon.png"/>
+                            </WrapPanel>
+                        </ComboBoxItem>
+                        <ComboBoxItem Tag="MacOS">
+                            <WrapPanel Width="50">
+                                <Image Source="Resources\Image\Systems-Mac-Os-icon.png"/>
+                            </WrapPanel>
+                        </ComboBoxItem>
+                        <ComboBoxItem Tag="Windows">
+                            <WrapPanel Width="50">
+                                <Image Source="Resources\Image\Windows-Update-icon.png"/>
+                            </WrapPanel>
+                        </ComboBoxItem>
+                    </ComboBox>
+                </GroupBox>
+                
+                <!--Насколько вам нравится программирование-->
+                <GroupBox Header="Насколько вам нравится программирование">
+                    <DockPanel>
+                        <Slider
+                            Minimum="0"
+                            Maximum="100"
+                            Width="300"/>
+                    </DockPanel>
+                </GroupBox>
+                
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Window>
