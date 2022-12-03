@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf_HW_3"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="800"
+        Title="MainWindow" Height="700" Width="800"
         FontSize="10">
     <Grid>
         <ScrollViewer
@@ -24,7 +24,6 @@
                 FontWeight="Medium"
                 FontSize="15"
                 Margin="2"/>
-
                 <!--Введите ФИО-->
                 <GroupBox Header="Введите ФИО">
                     <Grid>
@@ -69,7 +68,6 @@
                         MaxLength="50"/>
                     </Grid>
                 </GroupBox>
-
                 <!--Выбирете языки программирования, которые знаете-->
                 <GroupBox Header="Выбирете языки программирования, которые знаете">
                     <StackPanel>
@@ -144,7 +142,6 @@
                         </Expander>
                     </StackPanel>
                 </GroupBox>
-
                 <!--Расскажите о себе-->
                 <GroupBox Header="Расскажите о себе">
                     <Grid>
@@ -164,14 +161,12 @@
                         Content="0/500"/>
                     </Grid>
                 </GroupBox>
-                
                 <!--Выбирите дату рождения-->
                 <GroupBox Header="Выбирите дату рождения">
                     <DatePicker
                         SelectedDate="2000-01-01"
                         SelectedDateFormat="Long"/>
                 </GroupBox>
-                
                 <!--Ваш уровень английского-->
                 <GroupBox Header="Ваш уровень английского">
                     <StackPanel>
@@ -195,43 +190,62 @@
                             GroupName="english_level"/>
                     </StackPanel>
                 </GroupBox>
-                
                 <!--Выбирите ОС, которая вам нравится-->
                 <GroupBox Header="Выбирите ОС, которая вам нравится">
                     <ComboBox>
                         <ComboBoxItem Tag="Linux">
-                            <WrapPanel Width="50">
+                            <WrapPanel Width="150">
                                 <Image Source="Resources\Image\Linux-icon.png"/>
                             </WrapPanel>
                         </ComboBoxItem>
                         <ComboBoxItem Tag="Android">
-                            <WrapPanel Width="50">
+                            <WrapPanel
+                                Width="150">
                                 <Image Source="Resources\Image\OS-Android-icon.png"/>
                             </WrapPanel>
                         </ComboBoxItem>
                         <ComboBoxItem Tag="MacOS">
-                            <WrapPanel Width="50">
+                            <WrapPanel Width="150">
                                 <Image Source="Resources\Image\Systems-Mac-Os-icon.png"/>
                             </WrapPanel>
                         </ComboBoxItem>
                         <ComboBoxItem Tag="Windows">
-                            <WrapPanel Width="50">
+                            <WrapPanel Width="150">
                                 <Image Source="Resources\Image\Windows-Update-icon.png"/>
                             </WrapPanel>
                         </ComboBoxItem>
                     </ComboBox>
                 </GroupBox>
-                
                 <!--Насколько вам нравится программирование-->
                 <GroupBox Header="Насколько вам нравится программирование">
-                    <DockPanel>
+                    <Canvas
+                        HorizontalAlignment="Center"
+                        Height="40">
                         <Slider
                             Minimum="0"
                             Maximum="100"
-                            Width="300"/>
-                    </DockPanel>
+                            Width="300"
+                            Cursor="Hand"
+                            Canvas.Top="7"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center" Canvas.Left="-149"/>
+                        <TextBlock
+                            Text="0"
+                            HorizontalAlignment="Left"
+                            Canvas.Top="25"
+                            VerticalAlignment="Center" Canvas.Left="-146"/>
+                        <TextBlock
+                            Text="100"
+                            HorizontalAlignment="Left"
+                            Canvas.Top="25"
+                            VerticalAlignment="Center"
+                            Canvas.Left="137"/>
+                    </Canvas>
                 </GroupBox>
-                
+                <!--Пройти анкетирование-->
+                <Button
+                    Height="40"
+                    Content="Пройти анкетирование"/>
             </StackPanel>
         </ScrollViewer>
     </Grid>
