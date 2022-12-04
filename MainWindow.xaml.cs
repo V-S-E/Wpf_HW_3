@@ -20,14 +20,61 @@ namespace Wpf_HW_3
     /// </summary>
     public partial class MainWindow : Window
     {
+        ProgrammerProfile profile;
+        YourForm yourForm;
+
         public MainWindow()
         {
             InitializeComponent();
+            profile= new ProgrammerProfile();
+            yourForm = new YourForm();
         }
 
         private void btnPopup_Click(object sender, RoutedEventArgs e)
         {
             popUp_add.IsOpen = true;
+        }
+
+        /// <summary>
+        /// нажатие на кнопку пройти анкетирование
+        /// </summary>
+        private void TakeSurvey_Click(object sender, RoutedEventArgs e)
+        {
+            GetSurname();
+            if (ValidData())
+            {
+                SetSurname();
+                yourForm.Show();
+            }
+            else
+            {
+                MessageBox.Show("Error");
+            }
+        }
+
+        /// <summary>
+        /// получаем фамилию из textBox_Surname анкеты и присваиваем значение свойству Surname класса ProgrammerProfile
+        /// </summary>
+        void GetSurname()
+        {
+            profile.Surname = textBox_Surname.Text;
+        }
+
+        /// <summary>
+        /// записываем в textBlock_Surname YourForm значение из свойства Surname класса ProgrammerProfile
+        /// </summary>
+        void SetSurname()
+        {
+            yourForm.textBlock_Surname.Text = profile.Surname;
+        }
+
+        bool ValidData()
+        {
+            if (profile.ValidData())
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

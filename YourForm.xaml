@@ -1,0 +1,29 @@
+﻿<Window x:Class="Wpf_HW_3.YourForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf_HW_3"
+        mc:Ignorable="d"
+        Title="YourForm" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <TextBlock
+                x:Name="textBlock_Surname"/>
+            <TextBlock
+                Text="Дата рождения: "/>
+            <TextBlock
+                Text="Полных лет: "/>
+            <TextBlock
+                Text="О себе:"/>
+            <TextBlock
+                Text="Языки программирования: "/>
+            <TextBlock
+                Text="Уровень английского: "/>
+            <TextBlock
+                Text="Предпочитаемая ОС: "/>
+            <TextBlock
+                Text="Процент увлечением: "/>
+        </StackPanel>
+    </Grid>
+</Window>
