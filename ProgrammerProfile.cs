@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Wpf_HW_3
 {
@@ -31,9 +28,22 @@ namespace Wpf_HW_3
             OS = string.Empty;
         }
 
+        /// <summary>
+        /// проверяет фамилию на пустую строку
+        /// </summary>
+        /// <returns>если фамилия не пустая строка возвращает true иначе false</returns>
+        bool ValidSurname()
+        {
+            return Surname != string.Empty;
+        }
+
+        /// <summary>
+        /// проверяет все данные
+        /// </summary>
+        /// <returns>если все данные прошли проверку возвращает true иначе false</returns>
         public bool ValidData()
         {
-            if (Surname != string.Empty)
+            if (ValidSurname())
             {
                 return true;
             }

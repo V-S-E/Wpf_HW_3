@@ -1,17 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
 
 namespace Wpf_HW_3
 {
@@ -26,7 +13,7 @@ namespace Wpf_HW_3
         public MainWindow()
         {
             InitializeComponent();
-            profile= new ProgrammerProfile();
+            profile = new ProgrammerProfile();
             yourForm = new YourForm();
         }
 
@@ -36,7 +23,7 @@ namespace Wpf_HW_3
         }
 
         /// <summary>
-        /// нажатие на кнопку пройти анкетирование
+        /// нажатие на кнопку - пройти анкетирование
         /// </summary>
         private void TakeSurvey_Click(object sender, RoutedEventArgs e)
         {
@@ -53,7 +40,7 @@ namespace Wpf_HW_3
         }
 
         /// <summary>
-        /// получаем фамилию из textBox_Surname анкеты и присваиваем значение свойству Surname класса ProgrammerProfile
+        /// получает фамилию из textBox_Surname анкеты и присваивает значение свойству Surname класса ProgrammerProfile
         /// </summary>
         void GetSurname()
         {
@@ -61,13 +48,17 @@ namespace Wpf_HW_3
         }
 
         /// <summary>
-        /// записываем в textBlock_Surname YourForm значение из свойства Surname класса ProgrammerProfile
+        /// записывает в textBlock_Surname YourForm значение из свойства Surname класса ProgrammerProfile
         /// </summary>
         void SetSurname()
         {
             yourForm.textBlock_Surname.Text = profile.Surname;
         }
 
+        /// <summary>
+        /// проверяет данные из класса ProgrammerProfile
+        /// </summary>
+        /// <returns></returns>
         bool ValidData()
         {
             if (profile.ValidData())
