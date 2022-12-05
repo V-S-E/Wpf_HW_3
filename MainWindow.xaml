@@ -13,17 +13,17 @@
             VerticalScrollBarVisibility="Auto">
             <StackPanel>
                 <TextBlock
-                Text="Анкета"
-                HorizontalAlignment="Center"
-                FontSize="20"
-                FontWeight="Bold"
-                Margin="2"/>
+                    Text="Анкета"
+                    HorizontalAlignment="Center"
+                    FontSize="20"
+                    FontWeight="Bold"
+                    Margin="2"/>
                 <TextBlock
-                Text="программиста"
-                HorizontalAlignment="Center"
-                FontWeight="Medium"
-                FontSize="15"
-                Margin="2"/>
+                    Text="программиста"
+                    HorizontalAlignment="Center"
+                    FontWeight="Medium"
+                    FontSize="15"
+                    Margin="2"/>
                 <!--Введите ФИО-->
                 <GroupBox Header="Введите ФИО">
                     <Grid>
@@ -37,38 +37,38 @@
                             <RowDefinition/>
                         </Grid.RowDefinitions>
                         <Label
-                        Grid.Row="0"
-                        Grid.Column="0"
-                        Content="Фамилия"
-                        Margin="2"/>
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Content="Фамилия"
+                            Margin="2"/>
                         <TextBox
                             x:Name="textBox_Surname"
-                        Grid.Row="0"
-                        Grid.Column="1"
-                        Margin="2"
-                        MaxLength="50"/>
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Margin="2"
+                            MaxLength="50"/>
                         <Label
-                        Grid.Row="1"
-                        Grid.Column="0"
-                        Content="Имя"
-                        Margin="2"/>
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Content="Имя"
+                            Margin="2"/>
                         <TextBox
                             x:Name="textBox_Name"
-                        Grid.Row="1"
-                        Grid.Column="1"
-                        Margin="2"
-                        MaxLength="50"/>
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Margin="2"
+                            MaxLength="50"/>
                         <Label
-                        Grid.Row="2"
-                        Grid.Column="0"
-                        Content="Отчество"
-                        Margin="2"/>
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            Content="Отчество"
+                            Margin="2"/>
                         <TextBox
                             x:Name="textBox_Patronymic"
-                        Grid.Row="2"
-                        Grid.Column="1"
-                        Margin="2"
-                        MaxLength="50"/>
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Margin="2"
+                            MaxLength="50"/>
                     </Grid>
                 </GroupBox>
                 <!--Выбирете языки программирования, которые знаете-->
@@ -78,13 +78,13 @@
                             <StackPanel
                                 x:Name="stackPanel_listOfProgrammingLanguages">
                                 <CheckBox
-                        Content="C#"/>
+                                    Content="C#"/>
                                 <CheckBox
-                        Content="JavaScript"/>
+                                    Content="JavaScript"/>
                                 <CheckBox
-                        Content="Python"/>
+                                    Content="Python"/>
                                 <CheckBox
-                        Content="C++"/>
+                                    Content="C++"/>
                             </StackPanel>
                         </Border>
                         <!--Дополнительные-->

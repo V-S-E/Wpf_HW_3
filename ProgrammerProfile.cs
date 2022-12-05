@@ -38,12 +38,35 @@ namespace Wpf_HW_3
         }
 
         /// <summary>
+        /// проверяет имя на пустую строку
+        /// </summary>
+        /// <returns>если имя не пустая строка возвращает true иначе false</returns>
+        bool ValidName()
+        {
+            return Name != string.Empty;
+        }
+
+        /// <summary>
+        /// проверяет отчество на пустую строку
+        /// </summary>
+        /// <returns>если отчество не пустая строка возвращает true иначе false</returns>
+        bool ValidPatronymic()
+        {
+            return Patronymic != string.Empty;
+        }
+
+        bool ValidListOfProgrammingLanguages()
+        {
+            return listOfProgrammingLanguages.Count != 0;
+        }
+
+        /// <summary>
         /// проверяет все данные
         /// </summary>
         /// <returns>если все данные прошли проверку возвращает true иначе false</returns>
         public bool ValidData()
         {
-            if (ValidSurname())
+            if (ValidSurname() && ValidName() && ValidPatronymic() && ValidListOfProgrammingLanguages())
             {
                 return true;
             }

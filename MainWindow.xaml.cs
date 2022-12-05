@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System.Linq;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace Wpf_HW_3
 {
@@ -14,7 +16,6 @@ namespace Wpf_HW_3
         {
             InitializeComponent();
             profile = new ProgrammerProfile();
-            yourForm = new YourForm();
         }
 
         private void btnPopup_Click(object sender, RoutedEventArgs e)
@@ -28,10 +29,17 @@ namespace Wpf_HW_3
         private void TakeSurvey_Click(object sender, RoutedEventArgs e)
         {
             GetSurname();
+            GetName();
+            GetPatronymic();
+            GetProgrammingLanguages();
             if (ValidData())
             {
+                yourForm = new YourForm();
                 SetSurname();
-                yourForm.Show();
+                SetName();
+                SetPatronymic();
+                SetProgrammingLanguages();
+                yourForm.ShowDialog();
             }
             else
             {
@@ -53,6 +61,60 @@ namespace Wpf_HW_3
         void SetSurname()
         {
             yourForm.textBlock_Surname.Text = profile.Surname;
+        }
+
+        /// <summary>
+        /// получает имя из textBox_Name анкеты и присваивает значение свойству Name класса ProgrammerProfile
+        /// </summary>
+        void GetName()
+        {
+            profile.Name = textBox_Name.Text;
+        }
+
+        /// <summary>
+        /// записывает в textBlock_Name YourForm значение из свойства Name класса ProgrammerProfile
+        /// </summary>
+        void SetName()
+        {
+            yourForm.textBlock_Name.Text = profile.Name;
+        }
+
+        /// <summary>
+        /// получает имя из textBox_Patronymic анкеты и присваивает значение свойству Name класса ProgrammerProfile
+        /// </summary>
+        void GetPatronymic()
+        {
+            profile.Patronymic = textBox_Patronymic.Text;
+        }
+
+        /// <summary>
+        /// записывает в textBlock_Patronymic YourForm значение из свойства Patronymic класса ProgrammerProfile
+        /// </summary>
+        void SetPatronymic()
+        {
+            yourForm.textBlock_Patronymic.Text = profile.Patronymic;
+        }
+
+        /// <summary>
+        /// получает из stackPanel_listOfProgrammingLanguages content из отмеченных checkBox и добавляет в List класса ProgrammerProfile
+        /// </summary>
+        void GetProgrammingLanguages()
+        {
+            foreach (CheckBox item in stackPanel_listOfProgrammingLanguages.Children.OfType<CheckBox>())
+            {
+                if (item.IsChecked == true)
+                {
+                    profile.listOfProgrammingLanguages.Add(item.Content.ToString());
+                }
+            }
+        }
+
+        void SetProgrammingLanguages()
+        {
+            foreach (var item in profile.listOfProgrammingLanguages)
+            {
+                yourForm.textBlock_ProgrammingLanguages.Text += item;
+            }
         }
 
         /// <summary>
