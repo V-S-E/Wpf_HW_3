@@ -19,7 +19,7 @@
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                        <TextBlock
+                    <TextBlock
                             Grid.Row="0"
                             Grid.Column="0"
                             Grid.ColumnSpan="2"
@@ -27,13 +27,13 @@
                             FontSize="30"
                             FontWeight="ExtraBlack"
                             x:Name="textBlock_Surname"/>
-                        <TextBlock
+                    <TextBlock
                             x:Name="textBlock_Name"
                             FontSize="20"
                             FontWeight="Normal"
                             Grid.Column="0"
                             Grid.Row="1"/>
-                        <TextBlock
+                    <TextBlock
                             Margin="5 0 0 0"
                             x:Name="textBlock_Patronymic"
                             FontSize="20"
@@ -43,21 +43,112 @@
                             Grid.Row="1"/>
                 </Grid>
             </Border>
-            <TextBlock
-                Text="Дата рождения: "/>
-            <TextBlock
-                Text="Полных лет: "/>
-            <TextBlock
-                Text="О себе:"/>
-            <TextBlock
-                x:Name="textBlock_ProgrammingLanguages"
-                Text="Языки программирования: "/>
-            <TextBlock
-                Text="Уровень английского: "/>
-            <TextBlock
-                Text="Предпочитаемая ОС: "/>
-            <TextBlock
-                Text="Процент увлечением: "/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    HorizontalAlignment="Right"
+                    FontWeight="Bold"
+                    FontSize="15"
+                    Text="Дата рождения: "/>
+                <TextBlock
+                    x:Name="textBlock_DateOfBirth"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    HorizontalAlignment="Left"
+                    FontSize="15"/>
+                <TextBlock
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    HorizontalAlignment="Right"
+                    FontWeight="Bold"
+                    FontSize="15"
+                    Text="Полных лет: "/>
+                <TextBlock
+                    x:Name="textBlock_FullYears"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    HorizontalAlignment="Left"
+                    FontSize="15"/>
+                <TextBlock
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    HorizontalAlignment="Right"
+                    FontWeight="Bold"
+                    FontSize="15"
+                    Text="О себе: "/>
+                <TextBlock
+                    x:Name="textBlock_AboutMe"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    HorizontalAlignment="Left"
+                    FontSize="15"/>
+                <TextBlock
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    HorizontalAlignment="Right"
+                    FontWeight="Bold"
+                    FontSize="15"
+                    Text="Языки программирования: "/>
+                <TextBlock
+                    x:Name="textBlock_ProgrammingLanguages"
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    HorizontalAlignment="Left"
+                    FontSize="15"/>
+                <TextBlock
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    HorizontalAlignment="Right"
+                    FontWeight="Bold"
+                    FontSize="15"
+                    Text="Уровень английского: "/>
+                <TextBlock
+                    x:Name="textBlock_EnglishLevel"
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    HorizontalAlignment="Left"
+                    FontSize="15"/>
+                <TextBlock
+                    Grid.Row="5"
+                    Grid.Column="0"
+                    HorizontalAlignment="Right"
+                    FontWeight="Bold"
+                    FontSize="15"
+                    Text="Предпочитаемая ОС: "/>
+                <TextBlock
+                    x:Name="textBlock_PreferredOS"
+                    Grid.Row="5"
+                    Grid.Column="1"
+                    HorizontalAlignment="Left"
+                    FontSize="15"/>
+                <TextBlock
+                    Grid.Row="6"
+                    Grid.Column="0"
+                    HorizontalAlignment="Right"
+                    FontWeight="Bold"
+                    FontSize="15"
+                    Text="Процент увлечением: "/>
+                <TextBlock
+                    x:Name="textBlock_PassionPercentage"
+                    Grid.Row="6"
+                    Grid.Column="1"
+                    HorizontalAlignment="Left"
+                    FontSize="15"/>
+            </Grid>
         </StackPanel>
     </Grid>
 </Window>

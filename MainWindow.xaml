@@ -118,6 +118,8 @@
                                     Content="Добавить"
                                     FontWeight="Bold"/>
                                 <Button
+                                    x:Name="button_DeleteSelected"
+                                    Click="button_DeleteSelected_Click"
                                     Grid.Column="1"
                                     Grid.Row="1"
                                     Content="Удалить выбранное"
@@ -138,9 +140,15 @@
                                                 Content="Введите значение"
                                                 Margin="2"/>
                                             <TextBox
+                                                x:Name="textBox_Add"
+                                                TextWrapping="Wrap"
+                                                VerticalScrollBarVisibility="Auto"
+                                                AcceptsReturn="True"
                                                 Margin="2"
                                                 MaxLength="30"/>
                                             <Button
+                                                x:Name="button_OK"
+                                                Click="button_OK_Click"
                                                 Margin="2"
                                                 Content="OK"/>
                                         </StackPanel>
@@ -158,21 +166,24 @@
                             <RowDefinition/>
                         </Grid.RowDefinitions>
                         <TextBox
-                        Grid.Row="0"
-                        Height="80"
-                        TextWrapping="Wrap"
-                        MaxLength="500"
-                        VerticalScrollBarVisibility="Auto"
-                        AcceptsReturn="True"/>
+                            x:Name="textBox_Discription"
+                            TextChanged="textBox_Discription_TextChanged"
+                            Grid.Row="0"
+                            Height="80"
+                            TextWrapping="Wrap"
+                            MaxLength="500"
+                            VerticalScrollBarVisibility="Auto"
+                            AcceptsReturn="True"/>
                         <Label
-                        Grid.Row="1"
-                        Content="0/500"/>
+                            x:Name="label_Discription"
+                            Grid.Row="1"
+                            Content="0/500"/>
                     </Grid>
                 </GroupBox>
                 <!--Выбирите дату рождения-->
                 <GroupBox Header="Выбирите дату рождения">
                     <DatePicker
-                        SelectedDate="2000-01-01"
+                        x:Name="datePicker_DateOfBirth"
                         SelectedDateFormat="Long"/>
                 </GroupBox>
                 <!--Ваш уровень английского-->

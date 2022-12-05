@@ -10,7 +10,7 @@ namespace Wpf_HW_3
         public string Patronymic { get; set; }
         public List<string> listOfProgrammingLanguages;
         public string Discription { get; set; }
-        public DateTime DateOfBirth { get; set; }
+        public string DateOfBirth { get; set; }
         public string EnglishLevel { get; set; }
         public int LevelOfPassionForProgramming { get; set; }
         public string OS { get; set; }
@@ -22,7 +22,7 @@ namespace Wpf_HW_3
             Patronymic = string.Empty;
             listOfProgrammingLanguages = new List<string>();
             Discription = string.Empty;
-            DateOfBirth = DateTime.MinValue;
+            DateOfBirth = string.Empty;
             EnglishLevel = string.Empty;
             LevelOfPassionForProgramming = 0;
             OS = string.Empty;
@@ -55,9 +55,31 @@ namespace Wpf_HW_3
             return Patronymic != string.Empty;
         }
 
+        /// <summary>
+        /// проверяет количество записей в списке языков программирования
+        /// </summary>
+        /// <returns>если записей нет возвращает false иначе true</returns>
         bool ValidListOfProgrammingLanguages()
         {
             return listOfProgrammingLanguages.Count != 0;
+        }
+
+        /// <summary>
+        /// проверяет вкладку "Расскажите о себе" на пустую строку
+        /// </summary>
+        /// <returns>если вкладка не пустая строка возвращает true иначе false</returns>
+        bool ValidDiscription()
+        {
+            return Discription != string.Empty;
+        }
+
+        /// <summary>
+        /// проверяет дату рождения на пустую строку
+        /// </summary>
+        /// <returns>если дата рождения не пустая строка возвращает true иначе false</returns>
+        bool ValidDateOfBirth()
+        {
+            return DateOfBirth != string.Empty;
         }
 
         /// <summary>
@@ -66,7 +88,8 @@ namespace Wpf_HW_3
         /// <returns>если все данные прошли проверку возвращает true иначе false</returns>
         public bool ValidData()
         {
-            if (ValidSurname() && ValidName() && ValidPatronymic() && ValidListOfProgrammingLanguages())
+            if (ValidSurname() && ValidName() && ValidPatronymic()
+                && ValidListOfProgrammingLanguages() && ValidDiscription() && ValidDateOfBirth())
             {
                 return true;
             }
