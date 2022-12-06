@@ -88,7 +88,9 @@
                             </StackPanel>
                         </Border>
                         <!--Дополнительные-->
-                        <Expander Header="Дополнительные">
+                        <Expander 
+                            x:Name="expander_Additional"
+                            Header="Дополнительные">
                             <Expander.ToolTip>
                                 <ToolTip>
                                     <TextBlock Text="Если не нашли свой или знаете больше"/>
@@ -107,8 +109,12 @@
                                     Grid.RowSpan="2"
                                     Grid.Row="0"
                                     Grid.Column="0">
-                                    <ListBoxItem>
-                                        <TextBlock Text="Ещё много..."/>
+                                    <ListBoxItem
+                                        x:Name="listBoxItem_More"
+                                        Selected="listBoxItem_More_Selected">
+                                        <TextBlock
+                                            x:Name="textBlock_More"
+                                            Text="Ещё много..."/>
                                     </ListBoxItem>
                                 </ListBox>
                                 <Button
@@ -188,7 +194,7 @@
                 </GroupBox>
                 <!--Ваш уровень английского-->
                 <GroupBox Header="Ваш уровень английского">
-                    <StackPanel>
+                    <StackPanel x:Name="stackPanel_EnglishLevel">
                         <RadioButton
                             Content="(A1) - начальный"
                             GroupName="english_level"/>
@@ -211,7 +217,7 @@
                 </GroupBox>
                 <!--Выбирите ОС, которая вам нравится-->
                 <GroupBox Header="Выбирите ОС, которая вам нравится">
-                    <ComboBox>
+                    <ComboBox Name="comboBox_OS">
                         <ComboBoxItem Tag="Linux">
                             <WrapPanel Width="150">
                                 <Image Source="Resources\Image\Linux-icon.png"/>
@@ -241,6 +247,9 @@
                         HorizontalAlignment="Center"
                         Height="40">
                         <Slider
+                            x:Name="slider_PassionPercentage"
+                            ValueChanged="slider_PassionPercentage_ValueChanged"
+                            IsSelectionRangeEnabled="True"
                             TickFrequency="1"
                             Minimum="0"
                             Maximum="100"

@@ -12,10 +12,18 @@ namespace Wpf_HW_3
         public string Discription { get; set; }
         public string DateOfBirth { get; set; }
         public string EnglishLevel { get; set; }
-        public int LevelOfPassionForProgramming { get; set; }
         public string OS { get; set; }
+        public int LevelOfPassionForProgramming { get; set; }
 
         public ProgrammerProfile()
+        {
+            SettingProperties();
+        }
+
+        /// <summary>
+        /// инициализация свойст начальными значенниями
+        /// </summary>
+        public void SettingProperties()
         {
             Surname = string.Empty;
             Name = string.Empty;
@@ -24,8 +32,8 @@ namespace Wpf_HW_3
             Discription = string.Empty;
             DateOfBirth = string.Empty;
             EnglishLevel = string.Empty;
-            LevelOfPassionForProgramming = 0;
             OS = string.Empty;
+            LevelOfPassionForProgramming = 0;
         }
 
         /// <summary>
@@ -83,13 +91,32 @@ namespace Wpf_HW_3
         }
 
         /// <summary>
+        /// проверяет уровень английского на пустую строку
+        /// </summary>
+        /// <returns>если уровень английского не пустая строка возвращает true иначе false</returns>
+        bool ValidEnglishLevel()
+        {
+            return EnglishLevel != string.Empty;
+        }
+
+        /// <summary>
+        /// проверяет OS на пустую строку
+        /// </summary>
+        /// <returns>если OS не пустая строка возвращает true иначе false</returns>
+        bool ValidOS()
+        {
+            return OS != string.Empty;
+        }
+
+        /// <summary>
         /// проверяет все данные
         /// </summary>
         /// <returns>если все данные прошли проверку возвращает true иначе false</returns>
         public bool ValidData()
         {
             if (ValidSurname() && ValidName() && ValidPatronymic()
-                && ValidListOfProgrammingLanguages() && ValidDiscription() && ValidDateOfBirth())
+                && ValidListOfProgrammingLanguages() && ValidDiscription()
+                && ValidDateOfBirth() && ValidEnglishLevel() && ValidOS())
             {
                 return true;
             }

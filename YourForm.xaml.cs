@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Wpf_HW_3
 {
@@ -22,6 +11,14 @@ namespace Wpf_HW_3
         public YourForm()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// завершает работу приложения
+        /// </summary>
+        private void Window_Closing(object sender, CancelEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }

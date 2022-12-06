@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf_HW_3"
         mc:Ignorable="d"
-        Title="YourForm" Height="450" Width="500">
+        Title="YourForm" Height="450" Width="500"
+        Closing="Window_Closing">
     <Grid>
         <StackPanel>
             <Border

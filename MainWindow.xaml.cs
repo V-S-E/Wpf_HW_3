@@ -12,6 +12,7 @@ namespace Wpf_HW_3
     {
         ProgrammerProfile profile;
         YourForm yourForm;
+        string tempListBoxItemMore;
 
         public MainWindow()
         {
@@ -36,6 +37,8 @@ namespace Wpf_HW_3
             GetProgrammingLanguages();
             GetDescription();
             GetDateOfBirth();
+            GetEnglishLevel();
+            GetOS();
             if (ValidData())
             {
                 yourForm = new YourForm();
@@ -45,6 +48,9 @@ namespace Wpf_HW_3
                 SetProgrammingLanguages();
                 SetDiscription();
                 SetDateOfBirth();
+                SetEnglishLevel();
+                SetOS();
+                SetPassionPercentage();
                 yourForm.ShowDialog();
             }
             else
@@ -113,6 +119,10 @@ namespace Wpf_HW_3
                     profile.listOfProgrammingLanguages.Add(item.Content.ToString());
                 }
             }
+            if (tempListBoxItemMore != string.Empty)
+            {
+                profile.listOfProgrammingLanguages.Add(tempListBoxItemMore);
+            }
         }
 
         /// <summary>
@@ -156,11 +166,84 @@ namespace Wpf_HW_3
         }
 
         /// <summary>
-        /// посчитывает количество полных лет и записывает в textBlock_FullYears YourForm
+        /// подсчитывает количество полных лет и записывает в textBlock_FullYears YourForm
+        /// записывает textBlock_DateOfBirth YourForm день рождения из свойства DateOfBirth класса ProgrammerProfile
         /// </summary>
         void SetDateOfBirth()
         {
-            yourForm.textBlock_FullYears.Text = profile.DateOfBirth;
+            DateTime dateOfBirth = DateTime.Parse(profile.DateOfBirth);
+            int age = DateTime.Today.Year - dateOfBirth.Year;
+            if (dateOfBirth.AddYears(age) > DateTime.Today)
+            {
+                age--;
+            }
+            yourForm.textBlock_DateOfBirth.Text = profile.DateOfBirth;
+            yourForm.textBlock_FullYears.Text = age.ToString();
+        }
+
+        /// <summary>
+        /// получает из stackPanel_EnglishLevel content из отмеченной radioButton и присваивает значение свойству EnglishLevel класса ProgrammerProfile,
+        /// запрещает дальнейшее изменение выбора
+        /// </summary>
+        void GetEnglishLevel()
+        {
+            foreach (RadioButton item in stackPanel_EnglishLevel.Children.OfType<RadioButton>())
+            {
+                if (item.IsChecked == true)
+                {
+                    profile.EnglishLevel = item.Content.ToString();
+                    break;
+                }
+            }
+            stackPanel_EnglishLevel.IsEnabled = false;
+        }
+
+        /// <summary>
+        /// записывает в textBlock_EnglishLevel YourForm значение из свойства EnglishLevel класса ProgrammerProfile
+        /// </summary>
+        void SetEnglishLevel()
+        {
+            yourForm.textBlock_EnglishLevel.Text = profile.EnglishLevel;
+        }
+
+        /// <summary>
+        /// получает из cвыбранного ComboBoxItem содержимое Tag и присваивает значение свойству OS класса ProgrammerProfile
+        /// </summary>
+        void GetOS()
+        {
+            foreach (ComboBoxItem item in comboBox_OS.Items.OfType<ComboBoxItem>())
+            {
+                if (item.IsSelected == true)
+                {
+                    profile.OS = item.Tag.ToString();
+                }
+            }
+        }
+
+        /// <summary>
+        /// записывает в textBlock_PreferredOS YourForm значение из свойства OS класса ProgrammerProfile
+        /// </summary>
+        void SetOS()
+        {
+            yourForm.textBlock_PreferredOS.Text = profile.OS;
+        }
+
+        /// <summary>
+        /// изменении значения слайдера. В данном случае будет изменяться выделение слайдера
+        /// запись значения slider_PassionPercentage в свойство LevelOfPassionForProgramming класса ProgrammerProfile
+        /// </summary>
+        private void slider_PassionPercentage_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            ((Slider)sender).SelectionEnd = e.NewValue;
+            profile.LevelOfPassionForProgramming = (int)e.NewValue;
+        }
+
+        /// <summary>
+        /// записывает в textBlock_PassionPercentage YourForm значение из свойства LevelOfPassionForProgramming класса ProgrammerProfile
+        /// </summary>
+        void SetPassionPercentage()
+        {
+            yourForm.textBlock_PassionPercentage.Text = profile.LevelOfPassionForProgramming.ToString();
         }
 
         /// <summary>
@@ -199,6 +282,7 @@ namespace Wpf_HW_3
             {
                 item.IsChecked = false;
             }
+            tempListBoxItemMore = string.Empty;
             profile.listOfProgrammingLanguages.Clear();
         }
 
@@ -216,6 +300,16 @@ namespace Wpf_HW_3
         void AgeLimit()
         {
             datePicker_DateOfBirth.DisplayDateEnd = DateTime.Now.AddYears(-18);
+        }
+
+        /// <summary>
+        /// возникает при выборе listBoxItem_More
+        /// </summary>
+        private void listBoxItem_More_Selected(object sender, RoutedEventArgs e)
+        {
+            tempListBoxItemMore = textBlock_More.Text;
+            expander_Additional.IsExpanded = false;
+            listBoxItem_More.IsEnabled = false;
         }
     }
 }
